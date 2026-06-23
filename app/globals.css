@@ -1,26 +1,58 @@
-@import "tailwindcss";
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  
+  /* Backgrounds */
+  --bg: #F4EDE2;
+  --bg-warm: #EDE3D1;
+  --bg-soft: #FAF5EC;
+  --bg-rich: #E8DBC4;        /* novo - mais quente, pra contraste sutil */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Dark tones */
+  --dark: #1F1612;
+  --dark-soft: #2D211B;
+  --brown: #3D2817;          /* novo - marrom rico pra textos de impacto */
+  --brown-warm: #5C4030;     /* novo - marrom mais claro pra hover */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Gold */
+  --gold: #D4A535;
+  --gold-light: #E8C065;
+  --gold-deep: #794000;     /* novo - dourado mais escuro pra detalhes */
+  --gold-glow: rgba(198, 165, 90, 0.25);  /* novo - pra brilhos atrás de elementos */
+  --gold-soft: rgba(198, 165, 90, 0.15);
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Text */
+  --text: #1F1612;
+  --text-strong: #3D2817;    /* novo - marrom rico pra textos importantes */
+  --text-muted: #7A6F62;
+  --text-on-dark: #F4EDE2;
+  --font-footer: 'Manrope', sans-serif;
+  --text-muted-dark: #A89B8C;
+
+  /* Borders */
+  --border: rgba(31, 22, 18, 0.08);
+  --border-strong: rgba(31, 22, 18, 0.15);  /* novo */
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-bg-strong: rgba(255, 255, 255, 0.78);
+
+  /* Fonts */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-nav: 'Outfit', sans-serif;
+  --font-title: 'Cormorant Garamond', serif;
+
+  /* Sizes */
+  --radius: 12px;
+  --radius-lg: 20px;          /* novo - cards maiores */
+  --radius-pill: 100px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 12px rgba(31, 22, 18, 0.03);
+  --shadow-md: 0 8px 32px rgba(31, 22, 18, 0.06);
+  --shadow-lg: 0 20px 60px rgba(31, 22, 18, 0.12);
+  --shadow-glow: 0 0 60px rgba(198, 165, 90, 0.2);  /* novo - brilho dourado */
 }
