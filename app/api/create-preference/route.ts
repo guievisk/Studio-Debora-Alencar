@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
           failure: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/servicos`,
           pending: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/servicos`,
         },
+        notification_url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/webhook/mercadopago`,
       },
     });
 
