@@ -23,7 +23,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "fio-classico",
         name: "Fio Clássico",
-        price: 150,
+        price: 100.00,
         image:"/services/fio-classico/1.jpeg",
         description: "Aplicação fio a fio para um olhar marcante e natural.",
         gallery: [
@@ -39,7 +39,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "classico-natural",
         name: "Clássico Natural",
-        price: 150,
+        price: 100.00,
         image: "/services/classico-natural/1.jpeg",
         description: "Efeito sutil e elegante para o dia a dia.",
         gallery: [
@@ -51,7 +51,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "volume-charm",
         name: "Volume Charm",
-        price: 150,
+        price: 100.00,
         image: "/services/volume-charm/1.jpeg",
         description: "Volume médio com toque de sofisticação.",
         gallery: [
@@ -61,7 +61,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "volume-glamour",
         name: "Volume Glamour",
-        price: 150,
+        price: 100.00,
         image: "/services/volume-glamour/1.jpeg",
         description: "Volume intenso para um olhar impactante.",
         gallery: [
@@ -75,7 +75,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "volume-radiance",
         name: "Volume Radiance",
-        price: 150,
+        price: 100.00,
         image: "/services/volume-radiance/1.jpeg",
         description: "Cílios volumosos e leves que iluminam o olhar.",
         gallery: [
@@ -92,7 +92,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "volume-marrom",
         name: "Volume Marrom",
-        price: 150,
+        price: 100.00,
         image: "/services/volume-marrom/1.jpeg",
         description: "Cílios marrons que harmonizam com o tom natural.",
         gallery: [
@@ -111,7 +111,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "volume-secrets",
         name: "Volume Secrets",
-        price: 150,
+        price: 100.00,
         image: "/services/volume-secrets/1.jpeg",
         description: "Técnica exclusiva para um volume único e duradouro.",
         gallery: [
@@ -125,7 +125,7 @@ export const categories: ServiceCategory[] = [
       {
         slug: "brown-lumination",
         name: "Brown Lumination",
-        price: 150,
+        price: 100.00,
         image: "/services/brown-lumination/1.jpeg",
         description: "Combinação de fios marrons elegantes para um olhar refinado.",
         gallery: [

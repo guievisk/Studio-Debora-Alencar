@@ -1,0 +1,322 @@
+.page {
+  padding: 80px 48px 100px;
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionLabel {
+  font-family: var(--font-nav);
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold-deep);
+  font-weight: 500;
+}
+
+.userEmail {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.logoutBtn {
+  font-family: var(--font-nav);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-strong);
+  color: var(--text-strong);
+  padding: 15px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.logoutBtn:hover {
+  border-color: var(--gold-deep);
+  background: var(--glass-bg-strong);
+  transform: translateY(-2px);
+}
+
+/* MÉTRICAS */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.metricCard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(244, 237, 226, 0.85) 0%, rgba(232, 219, 196, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(198, 165, 90, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px 36px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.metricCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.metricNumberBig {
+  font-family: var(--font-numbers);
+  font-size: 130px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.12;
+  position: absolute;
+  top: -20px;
+  right: 16px;
+  line-height: 1;
+  letter-spacing: -4px;
+  pointer-events: none;
+}
+
+.metricLabel {
+  font-family: var(--font-nav);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.metricValue {
+  font-family: var(--font-numbers);
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--brown);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  position: relative;
+}
+
+.metricSub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  position: relative;
+}
+
+/* TABELA */
+.tableSection {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 40px 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.tableHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32px;
+}
+
+.tableTitle {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-strong);
+  letter-spacing: -0.5px;
+}
+
+.tableCount {
+  font-family: var(--font-nav);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.empty {
+  text-align: center;
+  padding: 64px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 8px;
+}
+
+.empty p {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--text-strong);
+}
+
+.empty span {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin: 0 -8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  min-width: 720px;
+}
+
+.table thead th {
+  font-family: var(--font-nav);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.table tbody td {
+  font-size: 14px;
+  color: var(--text-strong);
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: rgba(198, 165, 90, 0.06);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.nameCell {
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.valueCell {
+  font-family: var(--font-numbers);
+  font-weight: 600;
+  color: var(--brown);
+  font-size: 16px;
+}
+
+.contactCell {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.dateCell {
+  color: var(--text-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.badge {
+  font-family: var(--font-nav);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badgeApproved {
+  background: rgba(60, 140, 60, 0.12);
+  color: #2d7a2d;
+  border: 1px solid rgba(60, 140, 60, 0.25);
+}
+
+.badgePending {
+  background: rgba(198, 165, 90, 0.15);
+  color: var(--gold-deep);
+  border: 1px solid rgba(198, 165, 90, 0.3);
+}
+
+.badgeRejected {
+  background: rgba(180, 60, 60, 0.1);
+  color: #a83232;
+  border: 1px solid rgba(180, 60, 60, 0.22);
+}
+
+/* MOBILE */
+@media (max-width: 968px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 48px 20px 60px;
+  }
+  .header {
+    align-items: flex-start;
+  }
+  .tableSection {
+    padding: 24px 20px;
+  }
+}
