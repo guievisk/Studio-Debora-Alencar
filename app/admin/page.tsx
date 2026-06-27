@@ -2,6 +2,7 @@ import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { supabaseAdmin } from "@/lib/supabase";
 import LogoutButton from "./LogoutButton";
 import styles from "./page.module.css";
+import ChatIA from "./ChatIA";
 
 export default async function AdminPage() {
   const supabase = await createSupabaseServerClient();
@@ -123,13 +124,22 @@ export default async function AdminPage() {
                     </td>
                     <td className={styles.dateCell}>
                       {new Date(p.created_at).toLocaleDateString("pt-BR")}
+                      
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          
         )}
+      </div>
+      {/* CHAT IA */}
+      <div style={{ marginTop: "56px" }}>
+        <h2 className={styles.tableTitle}>Assistente Luna IA</h2>
+        <div style={{ marginTop: "24px" }}>
+          <ChatIA />
+        </div>
       </div>
     </main>
   );

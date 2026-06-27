@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 export default function Servicos() {
   const [activeCategory, setActiveCategory] = useState(0);
   const active = categories[activeCategory];
-
+//aura
   return (
     <section className={styles.servicos}>
       {/* HEADER */}
