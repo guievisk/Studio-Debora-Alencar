@@ -6,6 +6,7 @@ import Link from "next/link";
 import { categories } from "@/data/services";
 import styles from "./page.module.css";
 
+
 export default function Servicos() {
   const [activeCategory, setActiveCategory] = useState(0);
   const active = categories[activeCategory];

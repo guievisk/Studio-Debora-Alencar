@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sobre",
+  description:
+    "Conheça a história da Débora Alencar, especialista em extensão de cílios com mais de 8 anos de experiência em Goiânia.",
+};
 
 export default function Sobre() {
   return (

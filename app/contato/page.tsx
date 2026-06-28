@@ -1,5 +1,13 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contato",
+  description:
+    "Entre em contato com Débora Alencar Beauty. WhatsApp, Instagram e endereço em Goiânia-GO. Agende seu horário.",
+};
+
 
 const WHATSAPP_NUMBER = "5562981417345";
 const PHONE_DISPLAY = "+55 (62) 98141-7345";
@@ -11,6 +19,7 @@ const MAPS_URL = "https://www.google.com/maps/search/D%C3%A9bora%20Alencar%20Bea
 
 const WHATSAPP_MSG = "Olá Débora, vim pelo site e gostaria de agendar um horário.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+
 
 export default function Contato() {
   return (

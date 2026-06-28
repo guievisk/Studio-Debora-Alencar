@@ -16,8 +16,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Débora Alencar Beauty | Clinica de Estética",
-  description: "Extensão de cílios, design de sobrancelhas e tratamentos labiais em Goiânia.",
+  title: {
+    default: "Débora Alencar Beauty | Extensão de Cílios em Goiânia",
+    template: "%s | Débora Alencar Beauty",
+  },
+  description:
+    "Especialista em extensão de cílios, design de sobrancelhas e tratamentos estéticos em Goiânia-GO. Agende seu horário.",
+  keywords: [
+    "extensão de cílios Goiânia",
+    "design de sobrancelhas Goiânia",
+    "lash lifting Goiânia",
+    "estética Goiânia",
+    "Débora Alencar Beauty",
+    "cílios fio a fio Goiânia",
+    "volume russo Goiânia",
+  ],
+  authors: [{ name: "Débora Alencar Beauty" }],
+  openGraph: {
+    title: "Débora Alencar Beauty | Extensão de Cílios em Goiânia",
+    description:
+      "Especialista em extensão de cílios, design de sobrancelhas e tratamentos estéticos em Goiânia-GO.",
+    url: "https://studio-debora-alencar.vercel.app",
+    siteName: "Débora Alencar Beauty",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

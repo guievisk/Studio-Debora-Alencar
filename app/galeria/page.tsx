@@ -3,6 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sobre",
+  description:
+    "Conheça a história da Débora Alencar, especialista em extensão de cílios com mais de 8 anos de experiência em Goiânia.",
+};
 
 // CONFIGURE AQUI: define o range de fotos de cada categoria
 const PHOTO_RANGES = {

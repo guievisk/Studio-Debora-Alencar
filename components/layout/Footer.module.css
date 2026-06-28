@@ -2,7 +2,9 @@
   font-family: var(--font-footer);
   padding: 60px 48px 32px;
   margin-top: 60px;
+  overflow-x: hidden;
 }
+
 .divider {
   width: 60px;
   height: 1px;
@@ -63,11 +65,14 @@
   gap: 12px;
 }
 
-.linkList a, .linkList span {
+.linkList a,
+.linkList span {
   font-size: 14px;
   color: var(--text-muted);
   transition: color 0.3s ease;
   line-height: 1.5;
+  text-decoration: none;
+  word-break: break-word;
 }
 
 .linkList a:hover {
@@ -92,7 +97,7 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 48px 20px 24px;
+    padding: 40px 20px 24px;
   }
   .content {
     grid-template-columns: 1fr;
@@ -101,6 +106,9 @@
   }
   .brandTagline {
     margin: 0 auto;
+  }
+  .linkList {
+    align-items: center;
   }
   .bottom {
     flex-direction: column;
