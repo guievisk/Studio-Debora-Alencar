@@ -3,6 +3,8 @@ import { contactInfo } from "@/data/services";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const instaLink = `https://instagram.com/${contactInfo.instagram}`;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.divider} />
@@ -13,8 +15,7 @@ export default function Footer() {
             Débora Alencar <em>Beauty</em>
           </span>
           <p className={styles.brandTagline}>
-            Especialista em embelezamento do olhar — extensão de cílios,
-            sobrancelhas e tratamentos labiais em Goiânia.
+            Especialista em embelezamento do olhar — extensão de cílios, sobrancelhas e tratamentos labiais em Goiânia.
           </p>
         </div>
 
@@ -34,15 +35,7 @@ export default function Footer() {
           <div className={styles.linkList}>
             <span>{contactInfo.address}</span>
             <span>{contactInfo.city}</span>
-            <a
-            >
-            
-              href={`https://instagram.com/${contactInfo.instagram}`}
-              target="_blank"
-              rel="noopener noreferrer"
-
-              @{contactInfo.instagram}
-            </a>
+            <a href={instaLink} target="_blank" rel="noopener noreferrer">@{contactInfo.instagram}</a>
           </div>
         </div>
       </div>

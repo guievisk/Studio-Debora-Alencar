@@ -129,6 +129,11 @@
 .photoItem:hover .photoImg {
   transform: scale(1.08);
 }
+.photoImg {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: saturate(1.2) contrast(1.08);
+}
 
 /* LIGHTBOX */
 .lightbox {

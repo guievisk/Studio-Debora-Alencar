@@ -3,6 +3,7 @@ import { supabaseAdmin } from "@/lib/supabase";
 import LogoutButton from "./LogoutButton";
 import styles from "./page.module.css";
 import ChatIA from "./ChatIA";
+import Dashboard from "./Dashboard";
 
 export default async function AdminPage() {
   const supabase = await createSupabaseServerClient();
@@ -21,6 +22,10 @@ export default async function AdminPage() {
   const totalFaturado = aprovados.reduce((soma, p) => soma + (p.amount || 0), 0);
   const totalPagamentos = lista.length;
   const totalAprovados = aprovados.length;
+  {/* DASHBOARD */}
+      <Dashboard pagamentos={lista} />
+
+      {/* LISTA DE PAGAMENTOS */}
 
   const metrics = [
     {
