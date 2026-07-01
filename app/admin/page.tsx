@@ -4,6 +4,7 @@ import LogoutButton from "./LogoutButton";
 import styles from "./page.module.css";
 import ChatIA from "./ChatIA";
 import Dashboard from "./Dashboard";
+import AdminNav from "./AdminNav";
 
 export default async function AdminPage() {
   const supabase = await createSupabaseServerClient();
@@ -22,10 +23,6 @@ export default async function AdminPage() {
   const totalFaturado = aprovados.reduce((soma, p) => soma + (p.amount || 0), 0);
   const totalPagamentos = lista.length;
   const totalAprovados = aprovados.length;
-  {/* DASHBOARD */}
-      <Dashboard pagamentos={lista} />
-
-      {/* LISTA DE PAGAMENTOS */}
 
   const metrics = [
     {
@@ -47,7 +44,6 @@ export default async function AdminPage() {
 
   return (
     <main className={styles.page}>
-      {/* HEADER */}
       <div className={styles.header}>
         <div className={styles.headerText}>
           <div className={styles.sectionLabel}>Painel Administrativo</div>
@@ -59,7 +55,8 @@ export default async function AdminPage() {
         <LogoutButton />
       </div>
 
-      {/* MÉTRICAS */}
+      <AdminNav />
+
       <div className={styles.metricsGrid}>
         {metrics.map((m, i) => (
           <div key={m.label} className={styles.metricCard}>
@@ -71,7 +68,8 @@ export default async function AdminPage() {
         ))}
       </div>
 
-      {/* LISTA DE PAGAMENTOS */}
+      <Dashboard pagamentos={lista} />
+
       <div className={styles.tableSection}>
         <div className={styles.tableHead}>
           <h2 className={styles.tableTitle}>Pagamentos recebidos</h2>
@@ -129,17 +127,15 @@ export default async function AdminPage() {
                     </td>
                     <td className={styles.dateCell}>
                       {new Date(p.created_at).toLocaleDateString("pt-BR")}
-                      
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          
         )}
       </div>
-      {/* CHAT IA */}
+
       <div style={{ marginTop: "56px" }}>
         <h2 className={styles.tableTitle}>Assistente Luna IA</h2>
         <div style={{ marginTop: "24px" }}>

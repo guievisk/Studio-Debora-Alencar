@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.tab, .tabActive {
+  font-family: var(--font-nav);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.tab {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+}
+
+.tab:hover {
+  border-color: var(--gold);
+  color: var(--text-strong);
+}
+
+.tabActive {
+  background: linear-gradient(135deg, var(--brown) 0%, var(--dark) 100%);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+}

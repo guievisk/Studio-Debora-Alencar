@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import styles from "./chat.module.css";
 
 interface Message {
@@ -12,6 +13,12 @@ export default function ChatIA() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [messages]);
 
   async function handleSend() {
     if (!input.trim() || loading) return;
@@ -44,6 +51,7 @@ export default function ChatIA() {
       ]);
     } finally {
       setLoading(false);
+      setTimeout(() => inputRef.current?.focus(), 100);
     }
   }
 
@@ -57,55 +65,73 @@ export default function ChatIA() {
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatHeader}>
-        <div className={styles.chatHeaderDot} />
-        <div>
-          <div className={styles.chatHeaderTitle}>Luna IA</div>
-          <div className={styles.chatHeaderSub}>Sua assistente de negócios</div>
+        <Image
+          src="/llogo.png"
+          alt="Luna"
+          width={42}
+          height={42}
+          className={styles.lunaAvatar}
+        />
+        <div className={styles.chatHeaderText}>
+          <span className={styles.chatHeaderName}>Luna IA</span>
+          <span className={styles.chatHeaderSub}>Sua assistente de negócios</span>
         </div>
       </div>
 
-      <div className={styles.chatMessages}>
+      <div className={styles.messages}>
         {messages.length === 0 && (
           <div className={styles.chatEmpty}>
             <p>Olá Débora! Sou a Luna, sua assistente.</p>
-            <span>Me pergunte sobre seu faturamento, serviços mais vendidos, ou peça dicas para crescer.</span>
+            <span>
+              Me pergunte sobre seu faturamento, serviços mais vendidos, ou peça
+              dicas para crescer.
+            </span>
           </div>
         )}
 
         {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={
-              msg.role === "user" ? styles.messageUser : styles.messageAI
-            }
-          >
-            <p>{msg.content}</p>
+          <div key={i}>
+            {msg.role === "assistant" && (
+              <div className={styles.lunaLabel}>Luna</div>
+            )}
+            <div
+              className={`${styles.message} ${
+                msg.role === "user" ? styles.user : styles.luna
+              }`}
+            >
+              {msg.content}
+            </div>
           </div>
         ))}
 
         {loading && (
-          <div className={styles.messageAI}>
-            <p className={styles.typing}>Luna está pensando...</p>
+          <div className={styles.typing}>
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+            <span className={styles.dot} />
           </div>
         )}
+
+        <div ref={messagesEndRef} />
       </div>
 
-      <div className={styles.chatInputArea}>
+      <div className={styles.inputArea}>
         <input
+          ref={inputRef}
+          className={styles.input}
           type="text"
+          placeholder="Pergunte algo sobre seu negócio..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Pergunte algo sobre seu negócio..."
-          className={styles.chatInput}
           disabled={loading}
         />
         <button
+          className={styles.sendButton}
           onClick={handleSend}
           disabled={loading || !input.trim()}
-          className={styles.chatSendBtn}
         >
-          {loading ? "..." : "→"}
+          Enviar
         </button>
       </div>
     </div>
