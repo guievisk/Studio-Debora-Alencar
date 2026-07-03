@@ -35,26 +35,34 @@ FLUXO DE CONVERSA:
 
 2. IDENTIFICAÇÃO: Identifique o serviço e a data. Se o cliente for vago ("quero cílios"), pergunte qual tipo.
 
-3. HORÁRIO - DEPENDE DO QUE O CLIENTE DISSE:
+ETAPA 3 - PEDIR HORÁRIO ANTES DE MOSTRAR OPÇÕES:
 
-   CENÁRIO A — Cliente JÁ disse o horário (ex: "quero às 15", "amanhã às 16:00", "dia 5 às 10"):
-   → Use check_disponibilidade pra verificar se AQUELE horário específico está na lista.
-   → Se estiver, confirme IMEDIATAMENTE: "Horário disponível! Preciso do seu nome e WhatsApp."
-   → NÃO mostre outros horários. NÃO sugira alternativas. Confirme e siga.
-   → Se NÃO estiver, diga que não tem e pergunte se quer outro horário ou outro dia.
+REGRA CRÍTICA: NUNCA mostre horários disponíveis logo de cara. Sempre pergunte primeiro que horário o cliente prefere.
 
-   CENÁRIO B — Cliente NÃO disse horário (ex: "quero amanhã", "que horários tem?"):
-   → Use check_disponibilidade.
-   → Mostre NO MÁXIMO 3 horários espalhados de "sugerir_estes_3".
-   → NÃO mostre a lista completa. Aguarde o cliente escolher.
+Fluxo:
+- Se cliente ainda NÃO disse horário: pergunte "Que horário você tem em mente?" ou "Qual horário prefere?"
 
-   CENÁRIO C — Cliente pediu horário que NÃO está nos 3 sugeridos:
-   → Verifique em "todos_horarios_disponiveis".
-   → Se existir, confirme. Se não, diga que não tem.
+- Se cliente PERGUNTAR quais horários tem disponível (ex: "quais horários?", "quais opções tem?", "que horários tem livre?"):
+  → Primeira vez perguntando: "Você tem alguma preferência? Manhã, meio-dia ou tarde?"
+  → Segunda vez perguntando (insistiu): "Prefere um horário próximo de que hora? Por volta das 10? Das 14?"
+  → Terceira vez perguntando: AGORA sim use check_disponibilidade e mostre 5-6 horários espalhados
 
-4. COLETA DE DADOS:
-   Peça nome completo E WhatsApp (com DDD) NA MESMA mensagem.
-   Espere receber OS DOIS antes de continuar.
+- Se cliente JÁ disse horário específico (ex: "às 15", "10 da manhã", "16:00"):
+  → Use check_disponibilidade e confirme se aquele horário existe.
+  → Se existe: confirme direto. NÃO mostre outros.
+  → Se não existe: diga que não tem, pergunte se quer horário próximo (não mostra lista).
+
+ETAPA 4 - QUANDO MOSTRAR HORÁRIOS (só na 3ª insistência ou horário específico inexistente):
+
+Use "todos_horarios_disponiveis" e escolha 5-6 espalhados pelo dia:
+- 1 no início da manhã (ex: 08:00)
+- 1 no meio da manhã (ex: 10:30)
+- 1 antes do almoço (ex: 12:00)
+- 1 início da tarde (ex: 13:30)
+- 1 meio da tarde (ex: 15:30)
+- 1 fim da tarde (ex: 17:00)
+
+Ajuste conforme os slots reais disponíveis. Se o cliente pedir horário fora dos que você mostrou, verifique em "todos_horarios_disponiveis" e confirme se existir.
 
 5. CONFIRMAR AGENDAMENTO:
    Quando tiver serviço, data, horário, nome e WhatsApp, chame criar_agendamento UMA VEZ.
@@ -68,7 +76,13 @@ REGRAS ABSOLUTAS:
 - NUNCA invente horários — só use os da lista retornada.
 - Quando cliente disser número solto ("15", "16", "as 3"), interprete como horário (15:00, 16:00, 15:00).
 - Respostas curtas e diretas. No máximo 1 emoji por mensagem.
+- NUNCA mostre horários se o cliente ainda não pediu explicitamente
+- Se cliente perguntar "que horários tem?", NÃO mostre logo — pergunte a preferência primeiro
+- Só mostre a lista de horários depois de 3 insistências OU quando cliente pediu horário específico que não existe
+- Quando mostrar horários, mostre 5-6 espalhados pelo dia inteiro (não só manhã ou só tarde)
 - Português brasileiro.
+
+
 
 HOJE É: ${hoje}`;
 
@@ -348,7 +362,12 @@ async function executeTool(
 // ============================================
 export async function POST(request: NextRequest) {
   try {
-    const { messages } = await request.json();
+    const { messages, cliente } = await request.json();
+    const clienteInfo = cliente
+      ? `\n\nCLIENTE LOGADO:\n- Nome: ${cliente.nome}\n- Email: ${cliente.email}\n- WhatsApp: ${cliente.whatsapp || "NÃO INFORMADO"}\n\nSe o WhatsApp já está informado, NÃO peça de novo. Use os dados que já tem.\nSe o WhatsApp NÃO está informado, peça apenas o WhatsApp (nome e email você já tem).`
+      : "";
+
+    const promptFinal = systemPrompt + clienteInfo;
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -359,7 +378,7 @@ export async function POST(request: NextRequest) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const currentMessages: any[] = [
-      { role: "system", content: systemPrompt },
+      { role: "system", content: promptFinal },
       ...messages,
     ];
 
@@ -418,7 +437,7 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   } catch (error) {
-    console.error("Erro no chat de agendamento:", error);
+    console.error("Erro no chat de agendamento:", JSON.stringify(error, null, 2));
     return NextResponse.json(
       { error: "Erro interno do servidor" },
       { status: 500 }

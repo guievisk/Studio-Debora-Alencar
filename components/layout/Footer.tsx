@@ -12,7 +12,7 @@ export default function Footer() {
       <div className={styles.content}>
         <div className={styles.brandBlock}>
           <span className={styles.brandName}>
-            Débora Alencar <em>Beauty</em>
+            Studio Débora Alencar <em>Beauty</em>
           </span>
           <p className={styles.brandTagline}>
             Especialista em embelezamento do olhar — extensão de cílios, sobrancelhas e tratamentos labiais em Goiânia.

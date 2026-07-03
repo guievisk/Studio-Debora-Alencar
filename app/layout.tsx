@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Débora Alencar Beauty | Extensão de Cílios em Goiânia",
-    template: "%s | Débora Alencar Beauty",
+  title: { 
+  default: "Studio Débora Alencar | Extensão de Cílios em Goiânia",
+  template: "%s | Studio Débora Alencar",
   },
   description:
     "Especialista em extensão de cílios, design de sobrancelhas e tratamentos estéticos em Goiânia-GO. Agende seu horário.",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     "cílios fio a fio Goiânia",
     "volume russo Goiânia",
   ],
-  authors: [{ name: "Débora Alencar Beauty" }],
+  authors: [{ name: "Studio Débora Alencar" }],
   openGraph: {
-    title: "Débora Alencar Beauty | Extensão de Cílios em Goiânia",
+    title: "Studio Débora Alencar | Extensão de Cílios em Goiânia",
     description:
       "Especialista em extensão de cílios, design de sobrancelhas e tratamentos estéticos em Goiânia-GO.",
     url: "https://studio-debora-alencar.vercel.app",
-    siteName: "Débora Alencar Beauty",
+    siteName: "Studio Débora Alencar",
     locale: "pt_BR",
     type: "website",
   },

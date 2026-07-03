@@ -1,119 +1,168 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Sobre",
-  description:
-    "Conheça a história da Débora Alencar, especialista em extensão de cílios com mais de 8 anos de experiência em Goiânia.",
+type Categoria = "todas" | "cilios" | "sobrancelhas" | "labios";
+
+const FOTOS_POR_CATEGORIA: Record<Exclude<Categoria, "todas">, number[]> = {
+  cilios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+  sobrancelhas: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+  labios: [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73],
 };
 
-// CONFIGURE AQUI: define o range de fotos de cada categoria
-const PHOTO_RANGES = {
-  cilios: { start: 1, end: 40 },
-  sobrancelhas: { start: 41, end: 55 },
-  labios: { start: 56, end: 73 },
-};
+const TODAS_FOTOS = [
+  ...FOTOS_POR_CATEGORIA.cilios,
+  ...FOTOS_POR_CATEGORIA.sobrancelhas,
+  ...FOTOS_POR_CATEGORIA.labios,
+];
 
-const CATEGORIES = [
+const CATEGORIAS: { id: Categoria; label: string }[] = [
   { id: "todas", label: "Todas" },
   { id: "cilios", label: "Cílios" },
   { id: "sobrancelhas", label: "Sobrancelhas" },
   { id: "labios", label: "Lábios" },
 ];
 
-// Gera as fotos a partir dos ranges
-function getPhotos(category: string) {
-  if (category === "todas") {
-    return Array.from({ length: 73 }, (_, i) => ({
-      src: `/galeria/${i + 1}.jpeg`,
-      id: i + 1,
-    }));
+export default function GaleriaPage() {
+  const [categoria, setCategoria] = useState<Categoria>("todas");
+  const [fotoAberta, setFotoAberta] = useState<number | null>(null);
+
+  const fotosExibidas =
+    categoria === "todas" ? TODAS_FOTOS : FOTOS_POR_CATEGORIA[categoria];
+
+  useEffect(() => {
+    if (fotoAberta !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [fotoAberta]);
+
+  useEffect(() => {
+    function handleEsc(e: KeyboardEvent) {
+      if (e.key === "Escape") setFotoAberta(null);
+    }
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
+  function proximaFoto() {
+    if (fotoAberta === null) return;
+    const idx = fotosExibidas.indexOf(fotoAberta);
+    const proxima = fotosExibidas[(idx + 1) % fotosExibidas.length];
+    setFotoAberta(proxima);
   }
 
-  const range = PHOTO_RANGES[category as keyof typeof PHOTO_RANGES];
-  if (!range) return [];
-
-  const photos = [];
-  for (let i = range.start; i <= range.end; i++) {
-    photos.push({ src: `/galeria/${i}.jpeg`, id: i });
+  function fotoAnterior() {
+    if (fotoAberta === null) return;
+    const idx = fotosExibidas.indexOf(fotoAberta);
+    const anterior = fotosExibidas[(idx - 1 + fotosExibidas.length) % fotosExibidas.length];
+    setFotoAberta(anterior);
   }
-  return photos;
-}
-
-export default function Galeria() {
-  const [activeCategory, setActiveCategory] = useState("todas");
-  const [lightbox, setLightbox] = useState<string | null>(null);
-
-  const photos = getPhotos(activeCategory);
 
   return (
     <section className={styles.page}>
-      {/* HEADER */}
       <div className={styles.header}>
-        <div className={styles.sectionNumber}>— 05 —</div>
-        <span className={styles.sectionLabel}>Portfólio</span>
+        <div className={styles.sectionNumber}>— 03 —</div>
+        <span className={styles.sectionLabel}>Nossos trabalhos</span>
         <h1 className={styles.title}>
-          Resultados <em>reais</em>
+          Nossa <em>galeria</em>
         </h1>
         <p className={styles.subtitle}>
-          Cada trabalho é único, pensado para realçar a beleza natural de quem
-          confia em mim. Veja o que já criei.
+          Resultados reais de clientes que confiaram no nosso trabalho.
         </p>
       </div>
 
-      {/* FILTROS */}
-      <div className={styles.tabs}>
-        {CATEGORIES.map((cat) => (
+      <div className={styles.filtros}>
+        {CATEGORIAS.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
-            className={activeCategory === cat.id ? styles.tabActive : styles.tab}
+            onClick={() => setCategoria(cat.id)}
+            className={
+              categoria === cat.id ? styles.filtroAtivo : styles.filtro
+            }
           >
             {cat.label}
           </button>
         ))}
       </div>
 
-      {/* GRID */}
       <div className={styles.grid}>
-        {photos.map((photo) => (
+        {fotosExibidas.map((num) => (
           <div
-            key={photo.id}
-            className={styles.photoItem}
-            onClick={() => setLightbox(photo.src)}
+            key={num}
+            className={styles.item}
+            onClick={() => setFotoAberta(num)}
           >
             <Image
-              src={photo.src}
-              alt={`Trabalho ${photo.id}`}
-              fill
-              sizes="(max-width: 768px) 50vw, 25vw"
-              className={styles.photoImg}
+              src={`/galeria/${num}.jpeg`}
+              alt={`Trabalho ${num}`}
+              width={400}
+              height={500}
+              className={styles.foto}
+              loading="lazy"
             />
           </div>
         ))}
       </div>
 
-      {/* LIGHTBOX */}
-      {lightbox && (
-        <div className={styles.lightbox} onClick={() => setLightbox(null)}>
+      {fotoAberta !== null && (
+        <div className={styles.lightbox} onClick={() => setFotoAberta(null)}>
           <button
-            className={styles.lightboxClose}
-            onClick={() => setLightbox(null)}
+            className={styles.fecharBtn}
+            onClick={(e) => {
+              e.stopPropagation();
+              setFotoAberta(null);
+            }}
+            aria-label="Fechar"
           >
             ×
           </button>
-          <div className={styles.lightboxImage}>
+
+          <button
+            className={`${styles.navBtn} ${styles.navBtnLeft}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              fotoAnterior();
+            }}
+            aria-label="Foto anterior"
+          >
+            ‹
+          </button>
+
+          <div
+            className={styles.lightboxContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image
-              src={lightbox}
-              alt="Foto ampliada"
-              fill
-              sizes="100vw"
-              style={{ objectFit: "contain" }}
+              src={`/galeria/${fotoAberta}.jpeg`}
+              alt={`Trabalho ${fotoAberta}`}
+              width={1400}
+              height={1400}
+              className={styles.fotoLightbox}
+              quality={95}
+              priority
             />
+          </div>
+
+          <button
+            className={`${styles.navBtn} ${styles.navBtnRight}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              proximaFoto();
+            }}
+            aria-label="Próxima foto"
+          >
+            ›
+          </button>
+
+          <div className={styles.contador}>
+            {fotosExibidas.indexOf(fotoAberta) + 1} / {fotosExibidas.length}
           </div>
         </div>
       )}

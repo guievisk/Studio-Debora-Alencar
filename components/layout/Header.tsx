@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Serviços", href: "/servicos" },
   { label: "Galeria", href: "/galeria" },
   { label: "Contato", href: "/contato" },
+  { label: "Agendar", href: "/agendar" },
 ];
 
 export default function Header() {
