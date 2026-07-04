@@ -51,8 +51,8 @@ export default function Header() {
             className={styles.logoCircle}
           />
           <div>
-            <span className={styles.logoName}>Débora Alencar</span>
-            <span className={styles.logoSub}>Beauty Studio</span>
+            <span className={styles.logoName}>Studio Débora Alencar</span>
+            <span className={styles.logoSub}>Beauty Clinic</span>
           </div>
         </Link>
 

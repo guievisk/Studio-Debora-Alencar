@@ -48,22 +48,23 @@
 
 .logoName {
   display: block;
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 400;
   color: var(--text);
-  letter-spacing: 1.2px;
+  letter-spacing: -0.5px;
   line-height: 1;
 }
 
 .logoSub {
   display: block;
-  font-family: var(--font-body);
-  font-size: 8.5px;
-  color: var(--text-muted);
-  letter-spacing: 3.5px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: var(--gold-deep);
+  font-style: italic;
+  font-weight: 500;
   margin-top: 3px;
-  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .nav {
@@ -123,7 +124,7 @@
   gap: 5px;
 }
 
-.hamburgerLine {
+.hamburgerLine { 
   display: block;
   width: 24px;
   height: 2px;
@@ -143,14 +144,25 @@
     padding: 12px 18px;
   }
 
-  .logoName {
-    font-size: 14px;
-  }
+.logoName {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
 
-  .logoSub {
-    font-size: 7px;
-    letter-spacing: 2.5px;
-  }
+.logoSub {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: var(--gold-deep);
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 3px;
+  letter-spacing: -0.5px;
+}
 
   .logoCircle {
     width: 32px;

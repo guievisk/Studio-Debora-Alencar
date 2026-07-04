@@ -99,14 +99,14 @@ export default function GaleriaPage() {
             className={styles.item}
             onClick={() => setFotoAberta(num)}
           >
-            <Image
-              src={`/galeria/${num}.jpeg`}
-              alt={`Trabalho ${num}`}
-              width={400}
-              height={500}
-              className={styles.foto}
-              loading="lazy"
-            />
+          <Image
+            src={`/galeria/${num}.jpeg`}
+            alt={`Trabalho ${num}`}
+            width={400}
+            height={500}
+            className={styles.foto}
+            loading={fotosExibidas.indexOf(num) < 8 ? "eager" : "lazy"}
+          />
           </div>
         ))}
       </div>

@@ -172,18 +172,35 @@ export default function AgendarPage() {
   }
 
   if (checkingAuth) {
-    return (
-      <section className={styles.page}>
-        <div className={styles.header}>
-          <div className={styles.sectionNumber}>— 01 —</div>
-          <span className={styles.sectionLabel}>Agendamento</span>
-          <h1 className={styles.title}>
-            Agende seu <em>horário</em>
-          </h1>
+  return (
+    <section className={styles.page}>
+      <div className={styles.header}>
+        <div className={styles.sectionNumber}>— 01 —</div>
+        <span className={styles.sectionLabel}>Agendamento</span>
+        <h1 className={styles.title}>
+          Agende seu <em>horário</em>
+        </h1>
+      </div>
+
+      <div className={styles.chatContainer}>
+        <div className={styles.chatHeader}>
+          <div className={styles.skeletonAvatar} />
+          <div className={styles.chatHeaderText}>
+            <span className={styles.chatHeaderName}>Luna</span>
+            <span className={styles.chatHeaderSub}>Carregando...</span>
+          </div>
         </div>
-      </section>
-    );
-  }
+        <div className={styles.messages}>
+          <div className={styles.typing}>
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
   if (!user) {
     return (

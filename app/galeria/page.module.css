@@ -163,13 +163,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
+  height: fit-content;
 }
 
 .fotoLightbox {
-  max-width: 100%;
+  max-width: 90vw;
   max-height: 90vh;
-  width: auto !important;
-  height: auto !important;
+  width: auto;
+  height: auto;
   object-fit: contain;
   border-radius: var(--radius);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);

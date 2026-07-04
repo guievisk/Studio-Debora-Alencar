@@ -46,9 +46,6 @@ export default function Sobre() {
                   <div className={styles.badgeLabel}>Especialista</div>
                   <div className={styles.badgeName}>Cílios & Sobrancelhas</div>
                 </div>
-                <div className={styles.badgeIcon}>
-                <Image src="/llogo.png" alt="" width={40} height={40} />
-              </div>
               </div>
             </div>
           </div>
@@ -126,7 +123,7 @@ export default function Sobre() {
             Agende sua avaliação e descubra qual técnica é ideal para você.
           </p>
           <div className={styles.ctaButtons}>
-            <Link href="/contato" className={styles.btnGold}>
+            <Link href="/agendar" className={styles.btnGold}>
               Agendar Horário
             </Link>
             <Link href="/servicos" className={styles.btnGlass}>

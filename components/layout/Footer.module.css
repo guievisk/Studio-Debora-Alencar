@@ -30,19 +30,18 @@
 
 .brandName {
   font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 400;
   color: var(--text);
-  letter-spacing: 1px;
+  letter-spacing: -0.5px;
   line-height: 1.1;
 }
 
 .brandName em {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 400;
+  color: var(--gold-deep);
+  font-style: italic;
+  font-weight: 500;
 }
-
 .brandTagline {
   font-size: 13px;
   color: var(--text-muted);
