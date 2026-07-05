@@ -119,7 +119,7 @@ export default function Dashboard({ pagamentos }: DashboardProps) {
                 tickFormatter={(v) => `R$${v}`}
               />
               <Tooltip
-                formatter={(value: number) => [`R$ ${value.toFixed(2)}`, "Faturamento"]}
+                formatter={(value) => [`R$ ${Number(value).toFixed(2)}`, "Faturamento"]}
                 contentStyle={{
                   background: "rgba(255,255,255,0.95)",
                   border: "1px solid rgba(198,165,90,0.3)",
@@ -197,7 +197,7 @@ export default function Dashboard({ pagamentos }: DashboardProps) {
                 ))}
               </Pie>
               <Tooltip
-                formatter={(value: number, name: string) => [`${value}`, name]}
+                formatter={(value, name) => [`${Number(value)}`, name]}
                 contentStyle={{
                   background: "rgba(255,255,255,0.95)",
                   border: "1px solid rgba(198,165,90,0.3)",
