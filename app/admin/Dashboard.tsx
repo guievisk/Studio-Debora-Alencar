@@ -161,7 +161,7 @@ export default function Dashboard({ pagamentos }: DashboardProps) {
                 axisLine={{ stroke: "rgba(61,40,23,0.15)" }}
               />
               <Tooltip
-                formatter={(value: number) => [`${value}x`, "Vendas"]}
+                formatter={(value) => [`${Number(value)}x`, "Vendas"]}
                 contentStyle={{
                   background: "rgba(255,255,255,0.95)",
                   border: "1px solid rgba(198,165,90,0.3)",
