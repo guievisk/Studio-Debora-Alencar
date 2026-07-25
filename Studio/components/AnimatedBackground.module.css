@@ -1,0 +1,55 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob1, .blob2, .blob3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 1;
+}
+
+.blob1 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(198, 165, 90, 0.55), transparent 70%);
+  top: -200px;
+  left: -100px;
+  animation: float1 20s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(93, 56, 32, 0.5), transparent 70%);
+  top: 35%;
+  right: -200px;
+  animation: float2 25s ease-in-out infinite;
+}
+
+.blob3 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 137, 63, 0.5), transparent 70%);
+  bottom: -150px;
+  left: 30%;
+  animation: float3 30s ease-in-out infinite;
+}
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(100px, 80px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-120px, -60px); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(80px, -100px); }
+}

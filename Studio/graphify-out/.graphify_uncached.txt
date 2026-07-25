@@ -1,0 +1,47 @@
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-analyze\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-checklist\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-clarify\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-constitution\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-converge\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-implement\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-plan\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-specify\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-tasks\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.claude\skills\speckit-taskstoissues\SKILL.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\memory\constitution.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\templates\checklist-template.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\templates\constitution-template.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\templates\plan-template.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\templates\spec-template.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\templates\tasks-template.md
+C:\gui\Débora Alencar Beauty\Studio\.specify\workflows\speckit\workflow.yml
+C:\gui\Débora Alencar Beauty\Studio\AGENTS.md
+C:\gui\Débora Alencar Beauty\Studio\CLAUDE.md
+C:\gui\Débora Alencar Beauty\Studio\README.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.analyze.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.checklist.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.clarify.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.constitution.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.converge.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.implement.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.plan.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.specify.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.tasks.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\agents\speckit.taskstoissues.agent.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.analyze.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.checklist.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.clarify.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.constitution.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.converge.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.implement.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.plan.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.specify.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.tasks.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.github\prompts\speckit.taskstoissues.prompt.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\memory\constitution.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\templates\checklist-template.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\templates\constitution-template.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\templates\plan-template.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\templates\spec-template.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\templates\tasks-template.md
+C:\gui\Débora Alencar Beauty\Studio\speck kit\.specify\workflows\speckit\workflow.yml
